@@ -8,6 +8,8 @@ myapp.controller("EmployeeMainController", function ($scope, $http) {
     $scope.saveEmployeeDtails = function () {
         var data = new FormData();
         data.append('employeeName', $scope.employeeName);
+        data.append('employeeAge', $scope.employeeAge);
+        data.append('employeeAddress', $scope.employeeAddress);
         $.ajax({
             url: 'http://localhost:51279/api/Employee/SaveEmployeeDetails',
             processData: false,
@@ -23,9 +25,7 @@ myapp.controller("EmployeeMainController", function ($scope, $http) {
                 //do something
             }
         }).fail(function (a, b, c) {
-
         });
-
     }
     //End
 

@@ -14,6 +14,7 @@ namespace CRUD_Operations_API.Controllers
     {
         public static SaveResponses SaveEmployeeDetailsToDB()//save docs and blobs details to DB
         {
+            try{
             var httpRequest = System.Web.HttpContext.Current.Request;
             string employeeName = httpRequest.Params["employeeName"];
             SaveResponses saveResponse = new SaveResponses();
@@ -34,7 +35,11 @@ namespace CRUD_Operations_API.Controllers
                 saveResponse.saveStatus = "false";
             }
             return (saveResponse);
-
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
 
         }
         //public static List<Blob_Save_Details> GetBlobDetails(Blob_Save_Details BlobList)
